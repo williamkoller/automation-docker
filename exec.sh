@@ -1,5 +1,3 @@
-docker system prune && 
-docker rm -f $(docker ps -a -q) &&
-docker rmi $(docker images -q) &&
-docker volume rm $(docker volume ls -q) &&
-docker ps -a
+docker container stop $(docker container ls -aq) &&
+docker system prune -af --volumes &&
+docker container ls -a
